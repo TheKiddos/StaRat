@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     # Custom
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication'
     ],
 }
+
+AUTH_USER_MODEL = 'user.User'
