@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # 3rd part
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_yasg',
 
     # Custom
     'user.apps.UserConfig',
