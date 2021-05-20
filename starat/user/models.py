@@ -4,6 +4,7 @@ from django.db import models
 
 from . import managers
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     """Custom user model that use email instead of username"""
 
