@@ -36,5 +36,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/users/', include('user.urls')),
-    path('api/rateables/', include('rateable.urls')),
+    path('api/', include('rateable.urls')),
 ]

@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db.models import Avg
 from django.conf import settings
@@ -29,7 +30,7 @@ class Rateable(models.Model):
     def get_average_rating(self):
         ratings = self.ratings.all()
         avg_stars = ratings.aggregate(Avg('stars'))['stars__avg']
-        return int(avg_stars)
+        return round(avg_stars)
 
 
 class Rating(models.Model):
@@ -43,7 +44,14 @@ class Rating(models.Model):
         blank=False,
     )
     reviewer = models.CharField(max_length=255, null=True, blank=True)
-    stars = models.IntegerField(min=1, max=10, null=False, blank=False)
+    stars = models.PositiveSmallIntegerField(
+        null=False,
+        blank=False,
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(10),
+        ]
+    )
     review = models.TextField(null=True, blank=True)
 
     def __str__(self):

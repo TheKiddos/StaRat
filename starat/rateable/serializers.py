@@ -18,7 +18,8 @@ class RateableSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'type',
-            'url'
+            'url',
+            'average_rating',
         )
         read_only_fields = ('id',)
 
