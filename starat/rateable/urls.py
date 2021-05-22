@@ -7,6 +7,7 @@ app_name = 'rateable'
 
 router = routers.DefaultRouter()
 router.register('', views.RateableViewSet)
+router.register('ratings', views.RatingViewSet)
 
 urlpatterns = router.urls
 

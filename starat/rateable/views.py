@@ -1,11 +1,11 @@
-from rest_framework import viewsets, authentication, permissions
-from .models import Rateable
+from rest_framework import viewsets, authentication, permissions, mixins
+from .models import Rateable, Rating
 from . import serializers
-from utils import mixins
+from utils.mixins import PublicListRetrieveViewSetMixin
 
 
 # TODO: Make Public And Private View Instead?
-class RateableViewSet(mixins.PublicListRetrieveViewSetMixin,
+class RateableViewSet(PublicListRetrieveViewSetMixin,
                       viewsets.ModelViewSet):
     """Manage Ratable Objects By Owners"""
 
@@ -26,3 +26,14 @@ class RateableViewSet(mixins.PublicListRetrieveViewSetMixin,
         if self.request.user.is_authenticated:
             return qs.filter(owner=self.request.user)
         return qs
+
+
+class RatingViewSet(mixins.CreateModelMixin,
+                        mixins.ListModelMixin,
+                        viewsets.GenericViewSet):
+    """A viewset that provides `create`, and `list` actions."""
+
+    permission_classes = (permissions.AllowAny,)
+    queryset = Rating.objects.all()
+    serializer_class = serializers.RatingSerializer
+    filterset_fields = ['rateable', 'reviewer', 'stars']
