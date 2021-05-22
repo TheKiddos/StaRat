@@ -1,4 +1,3 @@
-from . import settings
 from .settings import BASE_DIR
 
 DEBUG = True

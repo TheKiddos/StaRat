@@ -3,8 +3,8 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$MODULE_DIR$/starat" />
-        <option name="settingsModule" value="starat/local_settings.py" />
+        <option name="rootFolder" value="$MODULE_DIR$" />
+        <option name="settingsModule" value="starat/starat/settings.py" />
         <option name="manageScript" value="manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
         <option name="doNotUseTestRunner" value="false" />
