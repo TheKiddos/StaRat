@@ -1,1 +1,1 @@
-web: gunicorn starat.starat.wsgi --log-file -
+web: gunicorn starat.wsgi --log-file -
