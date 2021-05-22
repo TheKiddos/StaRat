@@ -1,0 +1,1 @@
+web: gunicorn starat.starat.wsgi --log-file -
